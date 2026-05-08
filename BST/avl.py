@@ -41,6 +41,16 @@ def left_rotate(x):
     y.height = 1 + max(height(y.left), height(y.right))
     return y
 
+# Left-Right (LR case)
+def left_right_rotate(node):
+    node.left = left_rotate(node.left)
+    return right_rotate(node)
+
+# Right-Left (RL case)
+def right_left_rotate(node):
+    node.right = right_rotate(node.right)
+    return left_rotate(node)
+
 # Insert node
 def insert(root, key):
     if not root:
